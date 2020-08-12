@@ -16,9 +16,6 @@
 
 <a href="https://www.filamentgroup.com" class="project-logo">Filament Group</a>
 
-# {{site.title}}
-{{site.description}}
-
 ------------
 
 ## Documentation
