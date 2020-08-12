@@ -1,7 +1,4 @@
 ---
-title: Modal Dialog Web Component Demo
-show_downloads: true
-description: An simple, accessible web component.
 ---
 
 <script>this.customElements||document.write('<script src="./lib/document-register-element.js"><\x2fscript>');</script>
