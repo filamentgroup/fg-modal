@@ -1,5 +1,6 @@
 ---
 title: Modal Dialog Web Component Demo
+show_downloads: true
 description: An simple, accessible web component.
 ---
 
@@ -18,8 +19,8 @@ description: An simple, accessible web component.
 
 <a href="https://www.filamentgroup.com" class="project-logo">Filament Group</a>
 
-# {title} 
-# {description}
+# {site.title} 
+# {site.description}
 
 ------------
 
