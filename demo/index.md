@@ -16,17 +16,18 @@ description: An simple, accessible web component.
 <link rel="stylesheet" href="../src/wc-modal.css">
 
 
-[Filament Group](https://www.filamentgroup.com)
+<a href="https://www.filamentgroup.com" class="project-logo">Filament Group</a>
 
-{page.title} 
+# {title} 
+# {description}
 
-# Modal Web Component
+------------
+
 
 <a-component does="modal" id="testmodal">
   <h2 class="modal_title">Dialog number one</h2>
   <p>This is the modal content and it has a <a href="#">link</a> in it </p>
   <p>This is more modal content and it also has a <a href="#testmodal2" class="modal_link">open modal two</a> in it </p>
-
 </a-component>
 
 

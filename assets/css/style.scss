@@ -3,3 +3,20 @@
 
 @import "{{ site.theme }}";
 
+.page-header {
+background: linear-gradient(#1f7300,#4f9307);
+}
+.project-logo {
+background: url(https://www.filamentgroup.com/images/svg/fg-logo.svg) 50% 50% no-repeat;
+background-size: 90% auto;
+background-color: #1f7300;
+display: inline-block;
+text-indent: -9999px;
+overflow: hidden;
+width: 120px;
+height: 30px
+
+}
+.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+color: #2c9915;
+}
