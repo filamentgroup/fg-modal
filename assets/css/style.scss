@@ -20,3 +20,12 @@ height: 30px
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
 color: #2c9915;
 }
+
+.modal_link {
+    display: inline-block;
+    padding: .5em 1em;
+    border: #aaa;
+    background: #eee;
+    text-decoration: none;
+    border-radius: .2em;
+}
