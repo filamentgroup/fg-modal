@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test Modal Web Component</title>
-  <script>this.customElements||document.write('<script src="//unpkg.com/document-register-element"><\x2fscript>');</script>
-  <script type="module">
+  <script>this.customElements||document.write('<script src="./lib/document-register-element.js"><\x2fscript>');</script>
+  <script src="./lib/inert.js" defer></script>
+
+<script type="module">
     import {Modal} from '../src/wc-modal.js';
     window.modal = Modal;
   </script>
@@ -38,7 +40,6 @@
     
 
 
-    <script src="https://unpkg.com/wicg-inert"></script>
 
 </body>
 </html>

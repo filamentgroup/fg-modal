@@ -16,10 +16,13 @@
   },
   "main": "src/wc-modal.js",
   "dependencies": {
-    "fg-factory": "github:filamentgroup/wc-factory#master"
+    "fg-factory": "github:filamentgroup/wc-factory#master",
+    "document-register-element": "^1.14.5",
+    "wicg-inert": "^3.0.3"
   },
   "preview_url": "https://filamentgroup.github.io/wc-modal",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-qunit": "^2.1.1"
   }
 }
