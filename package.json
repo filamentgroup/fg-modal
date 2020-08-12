@@ -1,0 +1,25 @@
+{
+  "version": "0.0.1",
+  "name": "fg-modal",
+  "homepage": "https://github.com/filamentgroup/wc-modal/",
+  "author": {
+    "name": "Filament Group",
+    "email": "thegroup@filamentgroup.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/filamentgroup/wc-modal.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/filamentgroup/wc-modal/issues/"
+  },
+  "main": "src/wc-modal.js",
+  "dependencies": {
+    "fg-factory": "github:filamentgroup/wc-factory#master"
+  },
+  "preview_url": "https://filamentgroup.github.io/wc-modal",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
