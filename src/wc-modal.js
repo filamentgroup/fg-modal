@@ -30,7 +30,7 @@ class Modal extends HTMLElement {
 			cancelable: false
 		});
 		this.closeBtn = this.querySelector( "." + this.closeclass ) || this.appendCloseBtn();
-		this.title = this.querySelector( ".modal_title" );
+		this.titleElem = this.querySelector( ".modal_title" );
 		this.enhanceMarkup();
 		this.bindEvents();
 		this.dispatchEvent( this.initEvent );
@@ -47,9 +47,9 @@ class Modal extends HTMLElement {
 	enhanceMarkup(){
 		this.setAttribute( "role", "dialog" );
 		this.id = this.id || ("modal_" + new Date().getTime());
-		if( this.title ){
-			this.title.id = this.title.id || ("modal_title_" + new Date().getTime());
-			this.setAttribute( "aria-labelledby", this.title.id );
+		if( this.titleElem ){
+			this.titleElem.id = this.titleElem.id || ("modal_title_" + new Date().getTime());
+			this.setAttribute( "aria-labelledby", this.titleElem.id );
 		}
 		this.classList.add("modal");
 		this.setAttribute("tabindex","-1");
