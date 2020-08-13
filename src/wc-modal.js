@@ -1,4 +1,4 @@
-export class Modal extends HTMLElement {
+class Modal extends HTMLElement {
 
 	connectedCallback(){
 		this.closetext = "Close dialog";

@@ -5,11 +5,7 @@
 <script src="./lib/inert.js" defer></script>
 
 <script type="module">
-  import {Modal} from '../src/wc-modal.js';
-  window.modal = Modal;
-</script>
-<script type="module">
-  import './lib/wc-factory.js';
+  import '../src/wc-modal.js';
 </script>
 <link rel="stylesheet" href="../src/wc-modal.css">
 
