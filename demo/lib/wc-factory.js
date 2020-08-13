@@ -1,6 +1,6 @@
 
-// a-component behavior factory
-// make an a-component and give it a does= attribute with space separated classes to run
+// fg-modal behavior factory
+// make an fg-modal and give it a does= attribute with space separated classes to run
 export class Factory extends HTMLElement {
 	connectedCallback(){
 		var elem = this;
@@ -28,5 +28,5 @@ export class Factory extends HTMLElement {
 }
 
 if ('customElements' in window) {
-	customElements.define('a-component', Factory );
+	customElements.define('fg-modal', Factory );
 }

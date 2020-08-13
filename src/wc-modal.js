@@ -1,6 +1,6 @@
-export class Modal {
+export class Modal extends HTMLElement {
 
-	create(){
+	connectedCallback(){
 		this.closetext = "Close dialog";
 		this.closeclass = "modal_close";
 		this.closed = true;
@@ -29,33 +29,33 @@ export class Modal {
 			bubbles: true,
 			cancelable: false
 		});
-		this.closeBtn = this.elem.querySelector( "." + this.closeclass ) || this.appendCloseBtn();
-		this.title = this.elem.querySelector( ".modal_title" );
+		this.closeBtn = this.querySelector( "." + this.closeclass ) || this.appendCloseBtn();
+		this.title = this.querySelector( ".modal_title" );
 		this.enhanceMarkup();
 		this.bindEvents();
-		this.elem.dispatchEvent( this.initEvent );
+		this.dispatchEvent( this.initEvent );
 	}
 
 	appendCloseBtn(){
 		var btn = document.createElement( "button" );
 		btn.className = this.closeclass;
 		btn.innerHTML = this.closetext;
-		this.elem.append( btn );
+		this.append( btn );
 		return btn;
 	}
 
 	enhanceMarkup(){
-		this.elem.setAttribute( "role", "dialog" );
-		this.id = this.elem.id || ("modal_" + new Date().getTime());
+		this.setAttribute( "role", "dialog" );
+		this.id = this.id || ("modal_" + new Date().getTime());
 		if( this.title ){
 			this.title.id = this.title.id || ("modal_title_" + new Date().getTime());
-			this.elem.setAttribute( "aria-labelledby", this.title.id );
+			this.setAttribute( "aria-labelledby", this.title.id );
 		}
-		this.elem.classList.add("modal");
-		this.elem.setAttribute("tabindex","-1");
+		this.classList.add("modal");
+		this.setAttribute("tabindex","-1");
 		this.overlay = document.createElement("div");
 		this.overlay.className = "modal_screen";
-		this.elem.after(this.overlay);
+		this.after(this.overlay);
 		this.modalLinks = "a.modal_link[href='#" + this.id + "']";
 		this.changeAssocLinkRoles();
 	}
@@ -75,7 +75,7 @@ export class Modal {
 			}
 			
 		}
-		inertSiblings(this.elem);
+		inertSiblings(this);
 	}
 
 	unert(){
@@ -86,34 +86,34 @@ export class Modal {
 
 	open( programmedOpen ){
 		var self = this;
-		this.elem.dispatchEvent( this.beforeOpenEvent );
-		this.elem.classList.add( "modal-open" );
+		this.dispatchEvent( this.beforeOpenEvent );
+		this.classList.add( "modal-open" );
 		if( !programmedOpen ){
 			this.focusedElem = document.activeElement;
 		}
 		this.closed = false;
-		this.elem.focus();
+		this.focus();
 		self.inert();
-		this.elem.dispatchEvent( this.openEvent );
+		this.dispatchEvent( this.openEvent );
 	}
 
 	
 
 	close( programmedClose ){
 		var self = this;
-		this.elem.dispatchEvent( this.beforeCloseEvent );
-		this.elem.classList.remove( "modal-open" );
+		this.dispatchEvent( this.beforeCloseEvent );
+		this.classList.remove( "modal-open" );
 		this.closed = true;
 		self.unert();
 		var focusedElemModal = this.focusedElem.closest(".modal");
 		if( focusedElemModal ){
-			focusedElemModal.modal.open( true );
+			focusedElemModal.open( true );
 		}
 		if( !programmedClose ){
 			this.focusedElem.focus();
 		}
 		
-		this.elem.dispatchEvent( this.closeEvent );
+		this.dispatchEvent( this.closeEvent );
 	}
 
 	changeAssocLinkRoles(){
@@ -165,14 +165,18 @@ export class Modal {
 
 		// close on other dialog open
 		window.addEventListener('beforeopen', function( e){
-			if( !self.closed && e.target !== this.elem ){
+			if( !self.closed && e.target !== this ){
 				self.close( true );
 			}
 		});
 	}
 
-	destroy(){
+	disconnectedCallback(){
 		// remove screen when elem is removed
 		this.overlay.remove();
 	}
+}
+
+if ('customElements' in window) {
+	customElements.define('fg-modal', Modal );
 }
