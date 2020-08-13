@@ -5,12 +5,13 @@
 
 .page-header {
 background: linear-gradient(#1f7300,#4f9307);
+padding: 2rem 4rem;
 }
 .project-logo {
 background: url(https://www.filamentgroup.com/images/svg/fg-logo.svg) 50% 50% no-repeat;
 background-size: 90% auto;
-background-color: #1f7300;
-display: inline-block;
+display: block;
+margin: .5em auto;
 text-indent: -9999px;
 overflow: hidden;
 width: 120px;

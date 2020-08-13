@@ -14,9 +14,10 @@
 <link rel="stylesheet" href="../src/wc-modal.css">
 
 
-<a href="https://www.filamentgroup.com" class="project-logo">Filament Group</a>
+# Demo
 
-------------
+<a href="#testmodal" class="modal_link">Open Modal</a>
+
 
 ## Documentation
 
@@ -50,6 +51,3 @@ You can link to the modal by starting with an anchor link that has a class of `m
   <button class="modal_close" aria-label="Close Modal Window"></button>
 </a-component>
 
-## Example
-
-<a href="#testmodal" class="modal_link">Open Modal</a>
