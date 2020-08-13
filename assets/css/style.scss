@@ -11,17 +11,19 @@ padding: 2rem 4rem;
 background: url(https://www.filamentgroup.com/images/svg/fg-logo.svg) 50% 50% no-repeat;
 background-size: 90% auto;
 display: block;
-margin: .5em auto;
+margin: .2em auto 0;
 text-indent: -9999px;
 overflow: hidden;
-width: 120px;
+max-width: 170px;
 height: 30px
 
 }
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
 color: #2c9915;
 }
-
+.project-tagline {
+    margin-top: .2rem;
+}
 .modal_link {
     display: inline-block;
     padding: .5em 1em;
