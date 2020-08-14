@@ -65,7 +65,7 @@ class Modal extends HTMLElement {
 		function inertSiblings( node ){
 			if( node.parentNode ){
 				node.parentNode.childNodes.forEach(function(elem){
-					if( elem !== node && elem.nodeType === 1 ){
+					if( elem !== node && elem.nodeType === 1 && elem !== self.overlay ){
 						elem.inert = true;
 					}
 				});
@@ -139,14 +139,14 @@ class Modal extends HTMLElement {
 		});
 
 		// click on the screen itself closes it
-		this.overlay.addEventListener('mousedown', function( e ){
+		this.overlay.addEventListener('mouseup', function( e ){
 			if( !self.closed ){
 				self.close();
 			}
 		});
 
 		// click on anything outside dialog closes it too (if screen is not shown maybe?)
-		document.addEventListener('mouseup', function( e ){
+		window.addEventListener('mouseup', function( e ){
 			if( !self.closed && !e.target.closest( "#" + self.id ) ){
 				e.preventDefault();
 				self.close();
