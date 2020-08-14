@@ -53,15 +53,25 @@ You can link to the modal by starting with an anchor link that has a class of `m
 The modal web component generates a close button automatically with a class of `modal_close`. If you would like to create a custom close button for sake of styling or language purposes, include your own in the markup and the modal will use that instead:
 
 ```html
-<fg-modal id="testmodal2" aria-label="Dialog number two">
+<fg-modal id="testmodal" aria-label="Settings dialog">
   <p>content...</p>
   <button class="modal_close" aria-label="Close Modal Window"></button>
 </fg-modal>
 ```
 
-## Including Scripts and Styles
+## Including Scripts &amp; Styles
 
-TBD
+The modal has two dependencies, one for the Javascript and one for the CSS:
+
+```html
+<script type="module">
+  import '../src/wc-modal.js';
+</script>
+<link rel="stylesheet" href="../src/wc-modal.css">
+```
+
+
+
 
 ## Methods and Events
 
@@ -69,5 +79,10 @@ TBD
 
 ## Polyfills
 
-TBD
+To use the modal in modern browsers, two polyfills are likely necessary. One for the `inert` attribute (support currently includes Chrome and Edge), which is used for disabling the rest of the page when the modal is open, and one for custom elements (which are supported well but need a polyfill for IE11 and older.):
+
+```html
+<script>this.customElements||document.write('<script src="./lib/document-register-element.js"><\x2fscript>');</script>
+<script src="./lib/inert.js" defer></script>
+```
 
