@@ -52,7 +52,7 @@ You can link to the modal by starting with an anchor link that has a class of `m
 
 The modal web component generates a close button automatically with a class of `modal_close`. If you would like to create a custom close button for sake of styling or language purposes, include your own in the markup and the modal will use that instead:
 
-```
+```html
 <fg-modal id="testmodal2" aria-label="Dialog number two">
   <p>content...</p>
   <button class="modal_close" aria-label="Close Modal Window"></button>

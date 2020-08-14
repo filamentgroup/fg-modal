@@ -139,14 +139,14 @@ class Modal extends HTMLElement {
 		});
 
 		// click on the screen itself closes it
-		this.overlay.addEventListener('mouseup', function( e ){
+		this.overlay.addEventListener('mousedown', function( e ){
 			if( !self.closed ){
 				self.close();
 			}
 		});
 
 		// click on anything outside dialog closes it too (if screen is not shown maybe?)
-		window.addEventListener('mouseup', function( e ){
+		document.addEventListener('mouseup', function( e ){
 			if( !self.closed && !e.target.closest( "#" + self.id ) ){
 				e.preventDefault();
 				self.close();
