@@ -3,7 +3,7 @@
 
 <script>this.customElements||document.write('<script src="./lib/document-register-element.js" defer><\x2fscript>');</script>
 <script src="../src/wc-modal.js" type="module"></script>
-<script src="../src/es5/wc-modal.js" nomodule></script>
+<script src="./es5/wc-modal.js" nomodule></script>
 <script src="./lib/inert.js" defer></script>
 <link rel="stylesheet" href="../src/wc-modal.css">
 
