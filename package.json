@@ -16,13 +16,14 @@
   },
   "main": "src/wc-modal.js",
   "dependencies": {
-    "fg-factory": "github:filamentgroup/wc-factory#master",
     "document-register-element": "^1.14.5",
     "wicg-inert": "^3.0.3"
   },
   "preview_url": "https://filamentgroup.github.io/wc-modal",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-qunit": "^2.1.1"
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "gulp-babel": "^8.0.0"
   }
 }

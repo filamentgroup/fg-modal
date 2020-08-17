@@ -1,10 +1,9 @@
 ---
 ---
 
-  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.10/webcomponents-bundle.js" defer></script>
-  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.10/custom-elements-es5-adapter.js" defer></script>
- 
-<script src="../src/wc-modal.js" defer></script>
+<script>this.customElements||document.write('<script src="./lib/document-register-element.js" defer><\x2fscript>');</script>
+<script src="../src/wc-modal.js" type="module"></script>
+<script src="../src/es5/wc-modal.js" nomodule></script>
 <script src="./lib/inert.js" defer></script>
 <link rel="stylesheet" href="../src/wc-modal.css">
 
