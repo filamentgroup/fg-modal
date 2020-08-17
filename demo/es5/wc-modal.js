@@ -71,6 +71,16 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       this.dispatchEvent(this.initEvent);
     }
   }, {
+    key: "closest",
+    value: function closest(el, s) {
+      do {
+        if (Element.prototype.matches.call(el, s)) return el;
+        el = el.parentElement || el.parentNode;
+      } while (el !== null && el.nodeType === 1);
+
+      return null;
+    }
+  }, {
     key: "appendCloseBtn",
     value: function appendCloseBtn() {
       var btn = document.createElement("button");
@@ -152,7 +162,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       this.classList.remove("modal-open");
       this.closed = true;
       self.unert();
-      var focusedElemModal = this.focusedElem.closest(".modal");
+      var focusedElemModal = self.closest(this.focusedElem, ".modal");
 
       if (focusedElemModal) {
         focusedElemModal.open(true);
@@ -183,7 +193,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       }); // open dialog if click is on link to dialog
 
       window.addEventListener('click', function (e) {
-        var assocLink = e.target.closest(self.modalLinks);
+        var assocLink = self.closest(e.target, self.modalLinks);
 
         if (assocLink) {
           e.preventDefault();
@@ -198,7 +208,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       }); // click on anything outside dialog closes it too (if screen is not shown maybe?)
 
       window.addEventListener('mouseup', function (e) {
-        if (!self.closed && !e.target.closest("#" + self.id)) {
+        if (!self.closed && !self.closest(e.target, "#" + self.id)) {
           e.preventDefault();
           self.close();
         }

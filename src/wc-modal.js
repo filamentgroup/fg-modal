@@ -1,3 +1,4 @@
+
 class Modal extends HTMLElement {
 	constructor(){
 		super();
@@ -31,7 +32,13 @@ class Modal extends HTMLElement {
 		this.bindEvents();
 		this.dispatchEvent( this.initEvent );
 	}
-
+	closest(el, s){		
+			do {
+			  if (Element.prototype.matches.call(el, s)) return el;
+			  el = el.parentElement || el.parentNode;
+			} while (el !== null && el.nodeType === 1);
+			return null;
+	}
 	appendCloseBtn(){
 		var btn = document.createElement( "button" );
 		btn.className = this.closeclass;
@@ -102,7 +109,7 @@ class Modal extends HTMLElement {
 		this.classList.remove( "modal-open" );
 		this.closed = true;
 		self.unert();
-		var focusedElemModal = this.focusedElem.closest(".modal");
+		var focusedElemModal = self.closest(this.focusedElem, ".modal");
 		if( focusedElemModal ){
 			focusedElemModal.open( true );
 		}
@@ -129,7 +136,7 @@ class Modal extends HTMLElement {
 
 		// open dialog if click is on link to dialog
 		window.addEventListener('click', function( e ){
-			var assocLink = e.target.closest(self.modalLinks);
+			var assocLink = self.closest(e.target, self.modalLinks);
 			if( assocLink ){
 				e.preventDefault();
 				self.open();
@@ -145,7 +152,7 @@ class Modal extends HTMLElement {
 
 		// click on anything outside dialog closes it too (if screen is not shown maybe?)
 		window.addEventListener('mouseup', function( e ){
-			if( !self.closed && !e.target.closest( "#" + self.id ) ){
+			if( !self.closed && !self.closest(e.target, "#" + self.id ) ){
 				e.preventDefault();
 				self.close();
 			}
