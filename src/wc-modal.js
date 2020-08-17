@@ -1,5 +1,7 @@
 class Modal extends HTMLElement {
-
+	constructor(){
+		super();
+	}
 	connectedCallback(){
 		this.closetext = "Close dialog";
 		this.closeclass = "modal_close";
