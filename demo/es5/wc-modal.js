@@ -40,31 +40,28 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
   }
 
   _createClass(Modal, [{
+    key: "makeEvent",
+    value: function makeEvent(evtName) {
+      try {
+        new CustomEvent(evtName, {
+          bubbles: true,
+          cancelable: false
+        });
+      } catch (e) {
+        return document.createEvent('CustomEvent');
+      }
+    }
+  }, {
     key: "connectedCallback",
     value: function connectedCallback() {
       this.closetext = "Close dialog";
       this.closeclass = "modal_close";
       this.closed = true;
-      this.initEvent = new CustomEvent("init", {
-        bubbles: true,
-        cancelable: false
-      });
-      this.beforeOpenEvent = new CustomEvent("beforeopen", {
-        bubbles: true,
-        cancelable: false
-      });
-      this.openEvent = new CustomEvent("open", {
-        bubbles: true,
-        cancelable: false
-      });
-      this.closeEvent = new CustomEvent("close", {
-        bubbles: true,
-        cancelable: false
-      });
-      this.beforeCloseEvent = new CustomEvent("beforeclose", {
-        bubbles: true,
-        cancelable: false
-      });
+      this.initEvent = this.makeEvent("init");
+      this.beforeOpenEvent = this.makeEvent("beforeopen");
+      this.openEvent = this.makeEvent("open");
+      this.closeEvent = this.makeEvent("close");
+      this.beforeCloseEvent = this.makeEvent("beforeclose");
       this.closeBtn = this.querySelector("." + this.closeclass) || this.appendCloseBtn();
       this.titleElem = this.querySelector(".modal_title");
       this.enhanceMarkup();
