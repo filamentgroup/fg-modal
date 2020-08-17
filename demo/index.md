@@ -73,7 +73,7 @@ The modal has two dependencies, one for the Javascript and one for the CSS, whic
 
 To support IE11, we have used Babel to create [a module-free version of the modal](demo/es5/wc-modal.js) in the `demo` directory, which you can deliver to IE11 by using the module/nomodule pattern:
 
-```
+```html
 <script src="src/wc-modal.js" type="module"></script>
 <script src="demo/es5/wc-modal.js" defer nomodule></script>
 ```
