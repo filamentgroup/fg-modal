@@ -103,11 +103,11 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
 
       function inertSiblings(node) {
         if (node.parentNode) {
-          node.parentNode.childNodes.forEach(function (elem) {
+          for (var elem in node.parentNode.childNodes) {
             if (elem !== node && elem.nodeType === 1 && elem !== self.overlay) {
               elem.inert = true;
             }
-          });
+          }
 
           if (node.parentNode !== document.body) {
             inertSiblings(node.parentNode);
@@ -120,9 +120,9 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "unert",
     value: function unert() {
-      document.querySelectorAll("[inert]").forEach(function (elem) {
+      for (var elem in document.querySelectorAll("[inert]")) {
         elem.inert = false;
-      });
+      }
     }
   }, {
     key: "open",
@@ -163,9 +163,9 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "changeAssocLinkRoles",
     value: function changeAssocLinkRoles() {
-      document.querySelectorAll(this.modalLinks).forEach(function (elem) {
+      for (var elem in document.querySelectorAll(this.modalLinks)) {
         elem.setAttribute("role", "button");
-      });
+      }
     }
   }, {
     key: "bindEvents",
