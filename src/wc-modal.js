@@ -33,8 +33,9 @@ class Modal extends HTMLElement {
 		this.dispatchEvent( this.initEvent );
 	}
 	closest(el, s){		
+		var whichMatches = Element.prototype.matches || Element.prototype.msMatchesSelector;
 			do {
-			  if (Element.prototype.matches.call(el, s)) return el;
+			  if (whichMatches.call(el, s)) return el;
 			  el = el.parentElement || el.parentNode;
 			} while (el !== null && el.nodeType === 1);
 			return null;
