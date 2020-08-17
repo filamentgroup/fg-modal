@@ -36,7 +36,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
   function Modal() {
     _classCallCheck(this, Modal);
 
-    return _super.apply(this, arguments);
+    return _super.call(this);
   }
 
   _createClass(Modal, [{
