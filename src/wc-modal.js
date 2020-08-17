@@ -10,7 +10,7 @@ class Modal extends HTMLElement {
 			});
 		} else {
 			var evt = document.createEvent('CustomEvent');
-			evt.initCustomEvent( evtName, true, true );
+			evt.initCustomEvent( evtName, true, true, {} );
 			return evt;
 		}
 	}
