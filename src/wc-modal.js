@@ -4,7 +4,7 @@ class Modal extends HTMLElement {
 	}
 	makeEvent( evtName ){
 		try {
-			new CustomEvent( evtName, {
+			return new CustomEvent( evtName, {
 				bubbles: true,
 				cancelable: false
 			});

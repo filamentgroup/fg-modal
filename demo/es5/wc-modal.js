@@ -43,7 +43,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
     key: "makeEvent",
     value: function makeEvent(evtName) {
       try {
-        new CustomEvent(evtName, {
+        return new CustomEvent(evtName, {
           bubbles: true,
           cancelable: false
         });
