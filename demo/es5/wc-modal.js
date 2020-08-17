@@ -74,7 +74,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       var btn = document.createElement("button");
       btn.className = this.closeclass;
       btn.innerHTML = this.closetext;
-      this.append(btn);
+      this.appendChild(btn);
       return btn;
     }
   }, {
@@ -92,7 +92,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       this.setAttribute("tabindex", "-1");
       this.overlay = document.createElement("div");
       this.overlay.className = "modal_screen";
-      this.after(this.overlay);
+      this.parentNode.insertBefore(this.overlay, this.nextSibling);
       this.modalLinks = "a.modal_link[href='#" + this.id + "']";
       this.changeAssocLinkRoles();
     }
