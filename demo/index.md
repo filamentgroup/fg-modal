@@ -64,13 +64,18 @@ The modal web component generates a close button automatically with a class of `
 
 ## Including Scripts &amp; Styles
 
-The modal has two dependencies, one for the Javascript and one for the CSS:
+The modal has two dependencies, one for the Javascript and one for the CSS, which you can find in the `src` directory:
 
 ```html
-<script type="module">
-  import '../src/wc-modal.js';
-</script>
-<link rel="stylesheet" href="../src/wc-modal.css">
+<script type="module" src="src/wc-modal.js">
+<link rel="stylesheet" href="src/wc-modal.css">
+```
+
+To support IE11, we have used Babel to create [a module-free version of the modal](demo/es5/wc-modal.js) in the `demo` directory, which you can deliver to IE11 by using the module/nomodule pattern:
+
+```
+<script src="src/wc-modal.js" type="module"></script>
+<script src="demo/es5/wc-modal.js" defer nomodule></script>
 ```
 
 
