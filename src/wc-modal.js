@@ -74,8 +74,9 @@ class Modal extends HTMLElement {
 	}
 
 	unert(){
-		for( var elem in document.querySelectorAll( "[inert]" ) ){
-			elem.inert = false;
+		var elems = document.querySelectorAll( "[inert]" );
+		for( var i = 0; i < elems.length; i++ ){
+			elems[i].inert = false;
 		}
 	}
 
@@ -112,8 +113,9 @@ class Modal extends HTMLElement {
 	}
 
 	changeAssocLinkRoles(){
-		for( var elem in document.querySelectorAll(this.modalLinks) ){
-			elem.setAttribute("role", "button" );
+		var elems = document.querySelectorAll(this.modalLinks);
+		for( var i = 0; i < elems.length; i++ ){
+			elems[i].setAttribute("role", "button" );
 		}
 	}
 
