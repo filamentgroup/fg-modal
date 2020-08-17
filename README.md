@@ -1,11 +1,5 @@
-# wc-modal
+# fg-modal
 
 A modal dialog web component
 
-- [tests]()
-- [demo](https://filamentgroup.github.io/wc-modal/demo/)
-
-## Documentation
-
-TBD
-
+- [demo and docs](https://filamentgroup.github.io/wc-modal/demo/)
