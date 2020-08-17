@@ -42,13 +42,15 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
   _createClass(Modal, [{
     key: "makeEvent",
     value: function makeEvent(evtName) {
-      try {
+      if (typeof window.CustomEvent === "function") {
         return new CustomEvent(evtName, {
           bubbles: true,
           cancelable: false
         });
-      } catch (e) {
-        return document.createEvent('CustomEvent');
+      } else {
+        var evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(evtName, true, true);
+        return evt;
       }
     }
   }, {
