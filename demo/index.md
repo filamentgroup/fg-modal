@@ -68,28 +68,24 @@ The modal has two dependencies, one for the Javascript and one for the CSS, whic
 
 ```html
 <script type="module" src="src/fg-modal.js">
+<script src="demo/es5/fg-modal.js" defer nomodule></script>
 <link rel="stylesheet" href="src/fg-modal.css">
 ```
 
-To support IE11, we have used Babel to create [a module-free version of the modal](demo/es5/fg-modal.js) in the `demo` directory, which you can deliver to IE11 by using the module/nomodule pattern:
-
-```html
-<script src="src/fg-modal.js" type="module"></script>
-<script src="demo/es5/fg-modal.js" defer nomodule></script>
-```
+Note: to support IE11, we have used Babel to create [a module-free version of the modal](demo/es5/fg-modal.js) in the `demo` directory, which is listed above using the module/nomodule pattern to only delivery to non-module browsers. 
 
 
 ## Methods and Events
 
 The modal has several methods you can call on it. You can find these methods on the element itself. 
 
-- Open: Open the modal: `document.getElementById("testmodal").open();`
-- Close: Close the modal: `document.getElementById("testmodal").close();`
+- `Open`: Open the modal: `document.getElementById("testmodal").open();`
+- `Close`: Close the modal: `document.getElementById("testmodal").close();`
 
 When the modal opens and closes, there are four events. 
-- Init event: When the modal is first created, it receives an `init` event. 
-- Open events: When the open method is called, the `beforeopen` event is triggered on the element, and when the method finishes running, the `open` event is called. 
-- Close events: When the open method is called, the `beforeopen` event is triggered on the element, and when the method finishes running, the `open` event is called. 
+- `Init` event: When the modal is first created, it receives an `init` event. 
+- `Open` events: When the open method is called, the `beforeopen` event is triggered on the element, and when the method finishes running, the `open` event is called. 
+- `Close` events: When the open method is called, the `beforeopen` event is triggered on the element, and when the method finishes running, the `open` event is called. 
 
 ## Polyfills
 
