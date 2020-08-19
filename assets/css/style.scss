@@ -23,6 +23,7 @@ color: #2c9915;
 }
 .project-tagline {
     margin-top: .2rem;
+    opacity: .9;
 }
 .modal_link {
     display: inline-block;
@@ -33,6 +34,9 @@ color: #2c9915;
     border-radius: .2em;
 }
 
+.btn {
+    color: rgba(255,255,255,0.9);
+}
 
 
    .btn:hover {
