@@ -6,3 +6,6 @@ An accessible modal dialog web component
 
 - [demo & docs](https://filamentgroup.github.io/fg-modal/demo/)
 - [tests](https://filamentgroup.github.io/fg-modal/tests/)
+
+
+- NPM https://www.npmjs.com/package/fg-modal 
