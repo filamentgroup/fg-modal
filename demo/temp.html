@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Filament Group Modal | A simple, accessible modal dialog web component</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Filament Group Modal" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A simple, accessible modal dialog web component" />
+<meta property="og:description" content="A simple, accessible modal dialog web component" />
+<link rel="canonical" href="https://filamentgroup.github.io/fg-modal/demo/" />
+<meta property="og:url" content="https://filamentgroup.github.io/fg-modal/demo/" />
+<meta property="og:site_name" content="Filament Group Modal" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Filament Group Modal","url":"https://filamentgroup.github.io/fg-modal/demo/","description":"A simple, accessible modal dialog web component","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/fg-modal/assets/css/style.css?v=dd88d9a139ee7db5d5e1aba0ea93f5540b527e29">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name"><a href="https://www.filamentgroup.com" class="project-logo">Filament Group</a> <span>Modal</span></h1>
+      <h2 class="project-tagline">A simple, accessible modal dialog web component</h2>
+      
+        <a href="https://github.com/filamentgroup/fg-modal" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/filamentgroup/fg-modal/zipball/master" class="btn">Download .zip</a>
+        <a href="https://github.com/filamentgroup/fg-modal/tarball/master" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <script>this.customElements||document.write('<script src="./lib/document-register-element.js" defer><\x2fscript>');</script>
+
+<script src="../src/fg-modal.js" type="module"></script>
+
+<script src="./es5/fg-modal.js" defer="" nomodule=""></script>
+
+<script src="./lib/inert.js" defer=""></script>
+
+<link rel="stylesheet" href="../src/fg-modal.css" />
+
+<h1 id="demo">Demo</h1>
+
+<p><a href="#testmodal" class="modal_link">Open Modal</a></p>
+
+<h2 id="about">About</h2>
+
+<p>This modal is built to be easy to use, dependency-free (aside from feature polyfills), and accessible. It can be opened and closed programatically or via links in a page, contains behavior to gracefully support keyboard use (including focus management, focus isolation, and closing via escape key), and is tested for optimal accessibility for assistive technology. It also supports chaining of modals, meaning that if you link to another modal from within a modal, the new modal will cause the prior modal to close when it opens.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>To make a modal, create a <code class="language-plaintext highlighter-rouge">fg-modal</code> element and give it a unique ID. This element and attribute combination will be recognized by this component’s javascript, and allow it to be enhanced with necessary behaviors and accessibility information.</p>
+
+<p>You can place any HTML content inside the element, but one part that’s particularly helpful is a title that labels the modal accessibly, which can either be placed in an HTML element with a class of <code class="language-plaintext highlighter-rouge">modal_title</code> (seen below) or in an <code class="language-plaintext highlighter-rouge">aria-label</code> attribute on the <code class="language-plaintext highlighter-rouge">fg-modal</code> element itself.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;fg-modal</span> <span class="na">id=</span><span class="s">"testmodal"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"modal_title"</span><span class="nt">&gt;</span>Modal dialog number one<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;p&gt;</span>This is the modal content and it has a <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span> in it <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>This is more modal content and it also has a <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#testmodal2"</span> <span class="na">class=</span><span class="s">"modal_link"</span><span class="nt">&gt;</span>open modal two<span class="nt">&lt;/a&gt;</span> in it <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/fg-modal&gt;</span>
+</code></pre></div></div>
+
+<p>By default the modal dialog will be closed. You can create a link that opens the modal by starting with an anchor link that has a class of <code class="language-plaintext highlighter-rouge">modal_link</code> and an <code class="language-plaintext highlighter-rouge">href</code> that points to the modal’s ID. When the modal is enhanced, it will change the role of the link to a <code class="language-plaintext highlighter-rouge">button</code> to match its in-page behavior.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#testmodal"</span> <span class="na">class=</span><span class="s">"modal_link"</span><span class="nt">&gt;</span>Open Modal<span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<fg-modal id="testmodal">
+  <h2 class="modal_title">Modal dialog number one</h2>
+  <p>This is the modal content and it has a <a href="#">link</a> in it </p>
+  <p>This is more modal content and it also has a <a href="#testmodal2" class="modal_link">open modal two</a> in it </p>
+</fg-modal>
+
+<fg-modal id="testmodal2" aria-label="Modal dialog number two">
+  <p>This is more modal content and it has a custom close button in it. </p>
+  <p>This is more modal content and it also has a <a href="#">link</a> in it </p>
+  <button class="modal_close" aria-label="Close Modal Window"></button>
+</fg-modal>
+
+<p>The modal web component generates a close button automatically with a class of <code class="language-plaintext highlighter-rouge">modal_close</code>. If you would like to create a custom close button for sake of styling or language purposes, include your own in the markup that uses that class and the modal will use that button instead:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;fg-modal</span> <span class="na">id=</span><span class="s">"testmodal"</span> <span class="na">aria-label=</span><span class="s">"Settings dialog"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>content...<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"modal_close"</span> <span class="na">aria-label=</span><span class="s">"Close Modal Window"</span><span class="nt">&gt;&lt;/button&gt;</span>
+<span class="nt">&lt;/fg-modal&gt;</span>
+</code></pre></div></div>
+
+<h2 id="including-scripts--styles">Including Scripts &amp; Styles</h2>
+
+<p>The modal has two dependencies, one for the Javascript and one for the CSS, which you can find in the <code class="language-plaintext highlighter-rouge">src</code> directory:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"src/fg-modal.js"</span><span class="nt">&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">demo/es5/fg-modal.js</span><span class="dl">"</span> <span class="nx">defer</span> <span class="nx">nomodule</span><span class="o">&gt;</span><span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"src/fg-modal.css"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>Note: to support IE11, we have used Babel to create <a href="demo/es5/fg-modal.js">a module-free version of the modal</a> in the <code class="language-plaintext highlighter-rouge">demo</code> directory, which is listed above using the module/nomodule pattern to only delivery to non-module browsers.</p>
+
+<h2 id="methods-and-events">Methods and Events</h2>
+
+<p>The modal has several methods you can call on it. You can find these methods on the element itself.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Open</code>: Open the modal: <code class="language-plaintext highlighter-rouge">document.getElementById("testmodal").open();</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Close</code>: Close the modal: <code class="language-plaintext highlighter-rouge">document.getElementById("testmodal").close();</code></li>
+</ul>
+
+<p>When the modal opens and closes, there are four events.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Init</code> event: When the modal is first created, it receives an <code class="language-plaintext highlighter-rouge">init</code> event.</li>
+  <li><code class="language-plaintext highlighter-rouge">Open</code> events: When the open method is called, the <code class="language-plaintext highlighter-rouge">beforeopen</code> event is triggered on the element, and when the method finishes running, the <code class="language-plaintext highlighter-rouge">open</code> event is called.</li>
+  <li><code class="language-plaintext highlighter-rouge">Close</code> events: When the open method is called, the <code class="language-plaintext highlighter-rouge">beforeopen</code> event is triggered on the element, and when the method finishes running, the <code class="language-plaintext highlighter-rouge">open</code> event is called.</li>
+</ul>
+
+<h2 id="polyfills">Polyfills</h2>
+
+<p>To use the modal in modern browsers, two polyfills are likely necessary (please check browser support to see how these align with your needs).</p>
+
+<ul>
+  <li>Inert: The standard <code class="language-plaintext highlighter-rouge">inert</code> attribute (support currently includes Chrome and Edge) is used for disabling the rest of the page when the modal is open, which is a required accessiblility feature. Browser support for <code class="language-plaintext highlighter-rouge">inert</code> is still improving so <a href="https://github.com/WICG/inert">WICG’s Inert polyfill</a> is listed as a dependency of this project and can be found in the <a href="demo/inert.js">demo/inert.js</a> file. You can load it in a deferred or async manner as it is not used until the dialog is opened. Example: <code class="language-plaintext highlighter-rouge">&lt;script src="./lib/inert.js" defer&gt;&lt;/script&gt;</code></li>
+  <li>Custom Elements: The <code class="language-plaintext highlighter-rouge">fg-modal</code> element uses the standard HTML custom elements feature, which are well supported but need a polyfill in IE11 and older. This project references WebReflection’s <a href="https://github.com/WebReflection/document-register-element">Document Register Element</a> polyfill which can be found at <a href="demo/lib/document-register-element.js">demo/lib/document-register-element.js</a>. It should be loaded prior to the accessible modal script. In our demo page we use the following pattern to load it, but you could package it with <script>this.customElements||document.write('<script src=".demo/lib/document-register-element.js">&lt;\x2fscript&gt;');</script>
+```</script></li>
+</ul>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/filamentgroup/fg-modal">fg-modal</a> is maintained by <a href="https://github.com/filamentgroup">filamentgroup</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

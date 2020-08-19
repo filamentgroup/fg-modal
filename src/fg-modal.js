@@ -68,7 +68,8 @@ class Modal extends HTMLElement {
 		var self = this;
 		function inertSiblings( node ){
 			if( node.parentNode ){
-				for(var elem in node.parentNode.childNodes ){
+				for(var i in node.parentNode.childNodes ){
+					var elem = node.parentNode.childNodes[i];
 					if( elem !== node && elem.nodeType === 1 && elem !== self.overlay ){
 						elem.inert = true;
 					}
