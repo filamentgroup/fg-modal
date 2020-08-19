@@ -9,7 +9,7 @@ function copy() {
 }
 
 function es5() {
-    return src('src/wc-modal.js')
+    return src('src/fg-modal.js')
         .pipe(babel({
             presets: ['@babel/env']
         }))

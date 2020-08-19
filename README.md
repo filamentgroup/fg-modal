@@ -2,4 +2,4 @@
 
 A modal dialog web component
 
-- [demo and docs](https://filamentgroup.github.io/wc-modal/demo/)
+- [demo and docs](https://filamentgroup.github.io/fg-modal/demo/)

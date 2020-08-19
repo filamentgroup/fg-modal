@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Modal Test Suite</title>
+	<!-- Load local QUnit. -->
+	<link rel="stylesheet" href="qunit.css" media="screen">
+	<script src="qunit.js"></script>
+    <!-- Load local lib and tests. -->
+	<script>this.customElements||document.write('<script src="../demo/lib/document-register-element.js" defer><\x2fscript>');</script>
+	<script src="../src/fg-modal.js" type="module"></script>
+	<script src="./es5/fg-modal.js" defer nomodule></script>
+	<script src="../demo/lib/inert.js" defer></script>
+	<link rel="stylesheet" href="../src/fg-modal.css">
+
+
+	<script src="./tests.js" defer></script>
+
+	
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture">
+
+		
+        <fg-modal id="testmodal">
+			<h2 class="modal_title">Modal dialog number one</h2>
+			<p>This is the modal content and it has a <a href="#">link</a> in it </p>
+			<p>This is more modal content and it also has a <a href="#testmodal2" class="modal_link">open modal two</a> in it </p>
+		  </fg-modal>
+
+		  <fg-modal id="testmodal2" aria-label="Modal dialog number two">
+			<p>This is more modal content and it has a custom close button in it. </p>
+			<p>This is more modal content and it also has a <a href="#">link</a> in it </p>
+			<button class="modal_close" aria-label="Close Modal Window"></button>
+		  </fg-modal>
+
+		  <a href="#testmodal" class="modal_link">Open Modal</a>
+
+
+
+	</div>
+</body>
+</html>

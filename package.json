@@ -1,25 +1,25 @@
 {
   "version": "0.0.1",
   "name": "fg-modal",
-  "homepage": "https://github.com/filamentgroup/wc-modal/",
+  "homepage": "https://github.com/filamentgroup/fg-modal/",
   "author": {
     "name": "Filament Group",
     "email": "thegroup@filamentgroup.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/filamentgroup/wc-modal.git"
+    "url": "git://github.com/filamentgroup/fg-modal.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/filamentgroup/wc-modal/issues/"
+    "url": "https://github.com/filamentgroup/fg-modal/issues/"
   },
-  "main": "src/wc-modal.js",
+  "main": "src/fg-modal.js",
   "dependencies": {
     "document-register-element": "^1.14.5",
     "wicg-inert": "^3.0.3"
   },
-  "preview_url": "https://filamentgroup.github.io/wc-modal",
+  "preview_url": "https://filamentgroup.github.io/fg-modal",
   "devDependencies": {
     "gulp": "^4.0.2",
     "@babel/core": "^7.11.1",

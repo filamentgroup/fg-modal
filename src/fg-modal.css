@@ -12,11 +12,16 @@
 	bottom: 0;
 	right: 0;
 	background: rgba(0, 0, 0, .5);
+	display: none;
 }
-
-.modal:not(.modal-open),
-.modal:not(.modal-open)+.modal_screen {
+.modal {
 	visibility: hidden;
+}
+.modal-open {
+	visibility: visible;
+}
+.modal-open + .modal_screen {
+	display: block
 }
 
 .modal-open {
