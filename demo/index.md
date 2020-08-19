@@ -67,7 +67,7 @@ The modal web component generates a close button automatically with a class of `
 The modal has two dependencies, one for the Javascript and one for the CSS, which you can find in the `src` directory:
 
 ```html
-<script type="module" src="src/fg-modal.js">
+<script type="module" src="src/fg-modal.js"></script>
 <script src="demo/es5/fg-modal.js" defer nomodule></script>
 <link rel="stylesheet" href="src/fg-modal.css">
 ```
