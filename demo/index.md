@@ -82,7 +82,7 @@ The modal has several methods you can call on it. You can find these methods on 
 - `Open`: Open the modal: `document.getElementById("testmodal").open();`
 - `Close`: Close the modal: `document.getElementById("testmodal").close();`
 
-When the modal opens and closes, there are four events. 
+The modal has several events: 
 - `Init` event: When the modal is first created, it receives an `init` event. 
 - `Open` events: When the open method is called, the `beforeopen` event is triggered on the element, and when the method finishes running, the `open` event is called. 
 - `Close` events: When the open method is called, the `beforeopen` event is triggered on the element, and when the method finishes running, the `open` event is called. 
