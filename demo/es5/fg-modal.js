@@ -111,13 +111,15 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       this.changeAssocLinkRoles();
     }
   }, {
-    key: "inert",
-    value: function inert() {
+    key: "addInert",
+    value: function addInert() {
       var self = this;
 
       function inertSiblings(node) {
         if (node.parentNode) {
-          for (var elem in node.parentNode.childNodes) {
+          for (var i in node.parentNode.childNodes) {
+            var elem = node.parentNode.childNodes[i];
+
             if (elem !== node && elem.nodeType === 1 && elem !== self.overlay) {
               elem.inert = true;
             }
@@ -132,8 +134,8 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       inertSiblings(this);
     }
   }, {
-    key: "unert",
-    value: function unert() {
+    key: "removeInert",
+    value: function removeInert() {
       var elems = document.querySelectorAll("[inert]");
 
       for (var i = 0; i < elems.length; i++) {
@@ -144,6 +146,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
     key: "open",
     value: function open(programmedOpen) {
       var self = this;
+      console.log(self);
       this.dispatchEvent(this.beforeOpenEvent);
       this.classList.add("modal-open");
 
@@ -153,7 +156,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
 
       this.closed = false;
       this.focus();
-      self.inert();
+      this.addInert();
       this.dispatchEvent(this.openEvent);
     }
   }, {
@@ -163,7 +166,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       this.dispatchEvent(this.beforeCloseEvent);
       this.classList.remove("modal-open");
       this.closed = true;
-      self.unert();
+      self.removeInert();
       var focusedElemModal = self.closest(this.focusedElem, ".modal");
 
       if (focusedElemModal) {

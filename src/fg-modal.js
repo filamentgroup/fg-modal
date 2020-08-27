@@ -64,7 +64,7 @@ class Modal extends HTMLElement {
 		this.changeAssocLinkRoles();
 	}
 
-	inert(){
+	addInert(){
 		var self = this;
 		function inertSiblings( node ){
 			if( node.parentNode ){
@@ -83,7 +83,7 @@ class Modal extends HTMLElement {
 		inertSiblings(this);
 	}
 
-	unert(){
+	removeInert(){
 		var elems = document.querySelectorAll( "[inert]" );
 		for( var i = 0; i < elems.length; i++ ){
 			elems[i].inert = false;
@@ -92,6 +92,8 @@ class Modal extends HTMLElement {
 
 	open( programmedOpen ){
 		var self = this;
+		console.log(self);
+
 		this.dispatchEvent( this.beforeOpenEvent );
 		this.classList.add( "modal-open" );
 		if( !programmedOpen ){
@@ -99,7 +101,7 @@ class Modal extends HTMLElement {
 		}
 		this.closed = false;
 		this.focus();
-		self.inert();
+		this.addInert();
 		this.dispatchEvent( this.openEvent );
 	}
 
@@ -110,7 +112,7 @@ class Modal extends HTMLElement {
 		this.dispatchEvent( this.beforeCloseEvent );
 		this.classList.remove( "modal-open" );
 		this.closed = true;
-		self.unert();
+		self.removeInert();
 		var focusedElemModal = self.closest(this.focusedElem, ".modal");
 		if( focusedElemModal ){
 			focusedElemModal.open( true );
