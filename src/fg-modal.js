@@ -147,6 +147,14 @@ class Modal extends HTMLElement {
 			}
 		});
 
+		window.addEventListener('keyup', function( e ){
+			var assocLink = self.closest(e.target, self.modalLinks);
+			if( assocLink && e.keyCode === 32 ){
+				e.preventDefault();
+				self.open();
+			}
+		});
+
 		// click on the screen itself closes it
 		this.overlay.addEventListener('mouseup', function( e ){
 			if( !self.closed ){
