@@ -64,6 +64,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       this.openEvent = this.makeEvent("open");
       this.closeEvent = this.makeEvent("close");
       this.beforeCloseEvent = this.makeEvent("beforeclose");
+      this.activeElem = document.activeElement;
       this.closeBtn = this.querySelector("." + this.closeclass) || this.appendCloseBtn();
       this.titleElem = this.querySelector(".modal_title");
       this.enhanceMarkup();
@@ -145,13 +146,11 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "open",
     value: function open(programmedOpen) {
-      var self = this;
-      console.log(self);
       this.dispatchEvent(this.beforeOpenEvent);
       this.classList.add("modal-open");
 
       if (!programmedOpen) {
-        this.focusedElem = document.activeElement;
+        this.focusedElem = this.activeElem;
       }
 
       this.closed = false;
@@ -212,6 +211,10 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
           e.preventDefault();
           self.open();
         }
+      });
+      window.addEventListener('focus', function (e) {
+        self.activeElem = e.target;
+        console.log(self.activeElem);
       }); // click on the screen itself closes it
 
       this.overlay.addEventListener('mouseup', function (e) {

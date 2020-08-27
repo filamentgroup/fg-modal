@@ -25,7 +25,7 @@ class Modal extends HTMLElement {
 		this.openEvent = this.makeEvent( "open" );
 		this.closeEvent = this.makeEvent( "close" );
 		this.beforeCloseEvent = this.makeEvent( "beforeclose" );
-
+		this.activeElem = document.activeElement;
 		this.closeBtn = this.querySelector( "." + this.closeclass ) || this.appendCloseBtn();
 		this.titleElem = this.querySelector( ".modal_title" );
 		this.enhanceMarkup();
@@ -91,13 +91,10 @@ class Modal extends HTMLElement {
 	}
 
 	open( programmedOpen ){
-		var self = this;
-		console.log(self);
-
 		this.dispatchEvent( this.beforeOpenEvent );
 		this.classList.add( "modal-open" );
 		if( !programmedOpen ){
-			this.focusedElem = document.activeElement;
+			this.focusedElem = this.activeElem;
 		}
 		this.closed = false;
 		this.focus();
@@ -147,12 +144,16 @@ class Modal extends HTMLElement {
 			}
 		});
 
-		window.addEventListener('keyup', function( e ){
+		window.addEventListener('keydown', function( e ){
 			var assocLink = self.closest(e.target, self.modalLinks);
 			if( assocLink && e.keyCode === 32 ){
 				e.preventDefault();
 				self.open();
 			}
+		});
+
+		window.addEventListener('focusin', function( e ){
+			self.activeElem = e.target;
 		});
 
 		// click on the screen itself closes it
