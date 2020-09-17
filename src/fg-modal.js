@@ -2,6 +2,14 @@
 class Modal extends HTMLElement {
 	constructor(){
 		super();
+		this._init = this._init.bind(this);
+    	this._observer = new MutationObserver(this._init);
+	}
+	connectedCallback(){
+		if (this.children.length) {
+			this._init();
+		}
+		this._observer.observe(this, { childList: true });
 	}
 	makeEvent( evtName ){
 		if( typeof window.CustomEvent === "function" ){
@@ -15,7 +23,7 @@ class Modal extends HTMLElement {
 			return evt;
 		}
 	}
-	connectedCallback(){
+	_init(){
 		this.closetext = "Close dialog";
 		this.closeclass = "modal_close";
 		this.closed = true;
@@ -190,6 +198,7 @@ class Modal extends HTMLElement {
 	}
 
 	disconnectedCallback(){
+		this._observer.disconnect();
 		// remove screen when elem is removed
 		this.overlay.remove();
 	}

@@ -34,12 +34,28 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
   var _super = _createSuper(Modal);
 
   function Modal() {
+    var _this;
+
     _classCallCheck(this, Modal);
 
-    return _super.call(this);
+    _this = _super.call(this);
+    _this._init = _this._init.bind(_assertThisInitialized(_this));
+    _this._observer = new MutationObserver(_this._init);
+    return _this;
   }
 
   _createClass(Modal, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      if (this.children.length) {
+        this._init();
+      }
+
+      this._observer.observe(this, {
+        childList: true
+      });
+    }
+  }, {
     key: "makeEvent",
     value: function makeEvent(evtName) {
       if (typeof window.CustomEvent === "function") {
@@ -54,8 +70,8 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
       }
     }
   }, {
-    key: "connectedCallback",
-    value: function connectedCallback() {
+    key: "_init",
+    value: function _init() {
       this.closetext = "Close dialog";
       this.closeclass = "modal_close";
       this.closed = true;
@@ -204,7 +220,7 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
           self.open();
         }
       });
-      window.addEventListener('keyup', function (e) {
+      window.addEventListener('keydown', function (e) {
         var assocLink = self.closest(e.target, self.modalLinks);
 
         if (assocLink && e.keyCode === 32) {
@@ -212,9 +228,8 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
           self.open();
         }
       });
-      window.addEventListener('focus', function (e) {
+      window.addEventListener('focusin', function (e) {
         self.activeElem = e.target;
-        console.log(self.activeElem);
       }); // click on the screen itself closes it
 
       this.overlay.addEventListener('mouseup', function (e) {
@@ -246,7 +261,9 @@ var Modal = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "disconnectedCallback",
     value: function disconnectedCallback() {
-      // remove screen when elem is removed
+      this._observer.disconnect(); // remove screen when elem is removed
+
+
       this.overlay.remove();
     }
   }]);
